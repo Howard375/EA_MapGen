@@ -100,14 +100,17 @@ class MazeGenGA(pygad.GA):
             fit_val -= 2 * infeasible_pen
             return fit_val
 
+        # maze complexity
         # count the min len between start and goal
         dist = dijkstra(maze, start_coord, goal_coord)
         if dist == float('inf'):
             fit_val -= infeasible_pen
         else:
-            fit_val += dist
+            fit_val += 2 * dist
 
-        # maze complexity
+        # count number of air
+        air_num = np.count_nonzero(maze == 0)
+        fit_val += air_num
 
         return fit_val
 

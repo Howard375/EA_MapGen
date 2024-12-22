@@ -5,8 +5,8 @@ from matplotlib.colors import ListedColormap
 from matplotlib.colors import Normalize
 
 def main():
-    map_shape = (5, 5)
-    figure_name = "5_5"
+    map_shape = (30, 30)
+    figure_name = "30_30_add_air"
     config = {
         "population": 50,
         "num_gen": 2000,
@@ -14,8 +14,8 @@ def main():
         "parent_selection_type": "tournament", # "tournament"
         "K_tour": 2,
         "Xover": "single_point", # "single_point"
-        "mutation": "one_point", # "one_point", "random"
-        "mut_prob": 0.5, # 0.3, 0.1, 0.01
+        "mutation": "one_point", # "one_point", "random"(this is not easy to find feaible sol (can use lower mut rate))
+        "mut_prob": 0.6, # 0.6, 0.3, 0.1, 0.01
         "keep_elitism": 10,
     }
     ga_inst = MazeGenGA(map_shape, config)
